@@ -128,4 +128,4 @@ dist
 javascript/anagram/.exercism/metadata.json
 
 .exercism/metadata.json
-javascript/anagram/package-lock.json
+.package-lock.json
