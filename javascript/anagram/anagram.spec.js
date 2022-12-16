@@ -1,7 +1,7 @@
 import { findAnagrams } from './anagram';
 
 describe('Anagram', () => {
-	test('no matches', () => {
+	xtest('no matches', () => {
 		expect(
 			findAnagrams('diaper', ['hello', 'world', 'zombies', 'pants'])
 		).toEqual([]);
@@ -13,11 +13,11 @@ describe('Anagram', () => {
 		).toEqual(['lemons', 'melons']);
 	});
 
-	test('does not detect anagram subsets', () => {
+	xtest('does not detect anagram subsets', () => {
 		expect(findAnagrams('good', ['dog', 'goody'])).toEqual([]);
 	});
 
-	test('detects anagram', () => {
+	xtest('detects anagram', () => {
 		expect(
 			findAnagrams('listen', [
 				'enlists',
@@ -28,7 +28,7 @@ describe('Anagram', () => {
 		).toEqual(['inlets']);
 	});
 
-	test('detects three anagrams', () => {
+	xtest('detects three anagrams', () => {
 		expect(
 			findAnagrams('allergy', [
 				'gallery',
@@ -41,18 +41,18 @@ describe('Anagram', () => {
 		).toEqual(['gallery', 'regally', 'largely']);
 	});
 
-	test('detects multiple anagrams with different case', () => {
+	xtest('detects multiple anagrams with different case', () => {
 		expect(findAnagrams('nose', ['Eons', 'ONES'])).toEqual([
 			'Eons',
 			'ONES',
 		]);
 	});
 
-	test('does not detect non-anagrams with identical checksum', () => {
+	xtest('does not detect non-anagrams with identical checksum', () => {
 		expect(findAnagrams('mass', ['last'])).toEqual([]);
 	});
 
-	test('detects anagrams case-insensitively', () => {
+	xtest('detects anagrams case-insensitively', () => {
 		expect(
 			findAnagrams('Orchestra', [
 				'cashregister',
@@ -62,7 +62,7 @@ describe('Anagram', () => {
 		).toEqual(['Carthorse']);
 	});
 
-	test('detects anagrams using case-insensitive subject', () => {
+	xtest('detects anagrams using case-insensitive subject', () => {
 		expect(
 			findAnagrams('Orchestra', [
 				'cashregister',
@@ -72,7 +72,7 @@ describe('Anagram', () => {
 		).toEqual(['carthorse']);
 	});
 
-	test('detects anagrams using case-insensitive possible matches', () => {
+	xtest('detects anagrams using case-insensitive possible matches', () => {
 		expect(
 			findAnagrams('orchestra', [
 				'cashregister',
@@ -82,21 +82,21 @@ describe('Anagram', () => {
 		).toEqual(['Carthorse']);
 	});
 
-	test('does not detect an anagram if the original word is repeated', () => {
+	xtest('does not detect an anagram if the original word is repeated', () => {
 		expect(findAnagrams('go', ['go Go GO'])).toEqual([]);
 	});
 
-	test('anagrams must use all letters exactly once', () => {
+	xtest('anagrams must use all letters exactly once', () => {
 		expect(findAnagrams('tapper', ['patter'])).toEqual([]);
 	});
 
-	test('words are not anagrams of themselves (case-insensitive)', () => {
+	xtest('words are not anagrams of themselves (case-insensitive)', () => {
 		expect(
 			findAnagrams('BANANA', ['BANANA', 'Banana', 'banana'])
 		).toEqual([]);
 	});
 
-	test('words other than themselves can be anagrams', () => {
+	xtest('words other than themselves can be anagrams', () => {
 		expect(
 			findAnagrams('LISTEN', ['Listen', 'Silent', 'LISTEN'])
 		).toEqual(['Silent']);
