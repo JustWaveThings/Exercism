@@ -6,14 +6,14 @@ export const findAnagrams = (target, candidates) => {
 
 	candidatesLC.forEach((word) => {
 		if (word === targetLC) {
-			console.log(`${word} exact match`);
+			//console.log(`${word} exact match`);
 			excludeList.push(word);
 		}
 	});
 
 	candidatesLC.forEach((word) => {
 		if (word.length !== targetLC.length) {
-			console.log(`${word} not same length`);
+			//console.log(`${word} not same length`);
 			excludeList.push(word);
 		}
 	});
@@ -24,15 +24,28 @@ export const findAnagrams = (target, candidates) => {
 		}
 	});
 
+	let targetLCArray = [...targetLC];
+	let discardList = [];
+
 	returnList.forEach((word, index) => {
 		let returnListWordArray = [...word];
-		let targetLCArray = [...targetLC];
-		let discardIndex = [];
-		let currentWordIndex = 0;
+		console.log({ returnListWordArray });
+		returnListWordArray.forEach((letter) => {
+			if (!targetLCArray.includes(letter)) {
+				console.log({ letter }, 'not found in target');
+				if (!discardList.includes(returnList[index])) {
+					discardList.push(returnList[index]);
+					console.log({ discardList });
+				}
+			} else {
+				console.log({ letter }, 'found in target');
+			}
+		});
+	});
 
-		// I have a word that has passed a test on length and not direct equality('spam' === 'spam'). I now need to compare one word at a time, each of it's letters to the letters in the target word. If any of the letters do not match, I need to throw the whole word out.
-
-		//I have two arrays, each with the word to compare. I will increment a counter in the outside scope to add the indices to remove from the word array if there's a letter that doesn't match.
+	discardList.forEach((value) => {
+		returnList.splice(returnList.indexOf(value), 1);
+		console.log({ returnList });
 	});
 
 	//	console.log({ excludeList });
