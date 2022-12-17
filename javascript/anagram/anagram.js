@@ -48,8 +48,29 @@ export const findAnagrams = (target, candidates) => {
 		console.log({ returnList });
 	});
 
-	//	console.log({ excludeList });
-	//	console.log({ candidatesLC });
+	// we need to match case insensitive returnList to originalCandidates and return the original value for the transformed element
 
-	return returnList;
+	// so we have an array of valid anagrams all lowercase in returnList, and we have a list of mixed caps of anagrams and non-angrams
+
+	/* // example -       Array [
+    -   "Eons",
+    -   "ONES",
+    +   "eons",
+    +   "ones",
+]
+
+ */
+
+	/* 	
+	candidatesLC // original but lowercase
+	candidates // original retaining case
+	returnlist // list of words we need to get the index of in candidatesLC and then return the same index words from candidates array.  */
+
+	let answerArray = [];
+
+	returnList.forEach((word) => {
+		answerArray.push(candidates[candidatesLC.indexOf(word)]);
+	});
+
+	return answerArray;
 };

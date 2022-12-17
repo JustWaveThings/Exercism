@@ -1,23 +1,23 @@
 import { findAnagrams } from './anagram';
 
 describe('Anagram', () => {
-	xtest('no matches', () => {
+	test('no matches', () => {
 		expect(
 			findAnagrams('diaper', ['hello', 'world', 'zombies', 'pants'])
 		).toEqual([]);
 	});
 
-	xtest('detects two anagrams', () => {
+	test('detects two anagrams', () => {
 		expect(
 			findAnagrams('solemn', ['lemons', 'cherry', 'melons'])
 		).toEqual(['lemons', 'melons']);
 	});
 
-	xtest('does not detect anagram subsets', () => {
+	test('does not detect anagram subsets', () => {
 		expect(findAnagrams('good', ['dog', 'goody'])).toEqual([]);
 	});
 
-	xtest('detects anagram', () => {
+	test('detects anagram', () => {
 		expect(
 			findAnagrams('listen', [
 				'enlists',
@@ -28,7 +28,7 @@ describe('Anagram', () => {
 		).toEqual(['inlets']);
 	});
 
-	xtest('detects three anagrams', () => {
+	test('detects three anagrams', () => {
 		expect(
 			findAnagrams('allergy', [
 				'gallery',
@@ -48,11 +48,11 @@ describe('Anagram', () => {
 		]);
 	});
 
-	xtest('does not detect non-anagrams with identical checksum', () => {
+	test('does not detect non-anagrams with identical checksum', () => {
 		expect(findAnagrams('mass', ['last'])).toEqual([]);
 	});
 
-	xtest('detects anagrams case-insensitively', () => {
+	test('detects anagrams case-insensitively', () => {
 		expect(
 			findAnagrams('Orchestra', [
 				'cashregister',
@@ -62,7 +62,7 @@ describe('Anagram', () => {
 		).toEqual(['Carthorse']);
 	});
 
-	xtest('detects anagrams using case-insensitive subject', () => {
+	test('detects anagrams using case-insensitive subject', () => {
 		expect(
 			findAnagrams('Orchestra', [
 				'cashregister',
@@ -72,7 +72,7 @@ describe('Anagram', () => {
 		).toEqual(['carthorse']);
 	});
 
-	xtest('detects anagrams using case-insensitive possible matches', () => {
+	test('detects anagrams using case-insensitive possible matches', () => {
 		expect(
 			findAnagrams('orchestra', [
 				'cashregister',
@@ -82,21 +82,21 @@ describe('Anagram', () => {
 		).toEqual(['Carthorse']);
 	});
 
-	xtest('does not detect an anagram if the original word is repeated', () => {
+	test('does not detect an anagram if the original word is repeated', () => {
 		expect(findAnagrams('go', ['go Go GO'])).toEqual([]);
 	});
 
-	xtest('anagrams must use all letters exactly once', () => {
+	test('anagrams must use all letters exactly once', () => {
 		expect(findAnagrams('tapper', ['patter'])).toEqual([]);
 	});
 
-	xtest('words are not anagrams of themselves (case-insensitive)', () => {
+	test('words are not anagrams of themselves (case-insensitive)', () => {
 		expect(
 			findAnagrams('BANANA', ['BANANA', 'Banana', 'banana'])
 		).toEqual([]);
 	});
 
-	xtest('words other than themselves can be anagrams', () => {
+	test('words other than themselves can be anagrams', () => {
 		expect(
 			findAnagrams('LISTEN', ['Listen', 'Silent', 'LISTEN'])
 		).toEqual(['Silent']);
