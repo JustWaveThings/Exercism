@@ -1,40 +1,34 @@
 export const findAnagrams = (target, candidates) => {
 	let targetLC = target.toLowerCase();
 	let candidatesLC = candidates.map((word) => word.toLowerCase());
-	let excludeList = [];
-	let returnList = [];
 
 	candidatesLC.forEach((word) => {
 		if (word === targetLC) {
-			//console.log(`${word} exact match`);
-			excludeList.push(word);
+			console.log(`${word} exact match`);
+			candidatesLC.splice(candidatesLC.indexOf(word), 1);
 		}
 	});
 
 	candidatesLC.forEach((word) => {
 		if (word.length !== targetLC.length) {
 			//console.log(`${word} not same length`);
-			excludeList.push(word);
+			candidatesLC.splice(candidatesLC.indexOf(word), 1);
 		}
 	});
 
-	candidatesLC.forEach((word, index) => {
-		if (word !== excludeList[index]) {
-			returnList.push(word);
-		}
-	});
+	//checking for anagrams now
 
 	let targetLCArray = [...targetLC];
 	let discardList = [];
 
-	returnList.forEach((word, index) => {
-		let returnListWordArray = [...word];
-		console.log({ returnListWordArray });
-		returnListWordArray.forEach((letter) => {
+	candidatesLC.forEach((word, index) => {
+		let candidateLCListWordArray = [...word];
+		console.log({ candidateLCListWordArray });
+		candidateLCListWordArray.forEach((letter) => {
 			if (!targetLCArray.includes(letter)) {
 				console.log({ letter }, 'not found in target');
-				if (!discardList.includes(returnList[index])) {
-					discardList.push(returnList[index]);
+				if (!discardList.includes(candidatesLC[index])) {
+					discardList.push(candidatesLC[index]);
 					console.log({ discardList });
 				}
 			} else {
@@ -44,32 +38,32 @@ export const findAnagrams = (target, candidates) => {
 	});
 
 	discardList.forEach((value) => {
-		returnList.splice(returnList.indexOf(value), 1);
-		console.log({ returnList });
+		candidatesLC.splice(candidatesLC.indexOf(value), 1);
 	});
 
-	// we need to match case insensitive returnList to originalCandidates and return the original value for the transformed element
+	// addressing double letters -- anagram letters can only be used once
 
-	// so we have an array of valid anagrams all lowercase in returnList, and we have a list of mixed caps of anagrams and non-angrams
+	/* 	var array = ['I', 'hAve', 'theSe', 'ITEMs'],
+			indexOf = (arr, q) =>
+				arr.findIndex((item) => q.toLowerCase() === item.toLowerCase());
+		^		
+https://stackoverflow.com/questions/24718349/how-do-i-make-array-indexof-case-insensitive
 
-	/* // example -       Array [
-    -   "Eons",
-    -   "ONES",
-    +   "eons",
-    +   "ones",
-]
-
- */
-
-	/* 	
-	candidatesLC // original but lowercase
-	candidates // original retaining case
-	returnlist // list of words we need to get the index of in candidatesLC and then return the same index words from candidates array.  */
+				*/
 
 	let answerArray = [];
 
-	returnList.forEach((word) => {
-		answerArray.push(candidates[candidatesLC.indexOf(word)]);
+	indexOf = (array, word) =>
+		array.findIndex(
+			(item) => word.toLowerCase() === item.toLowerCase()
+		);
+
+	candidatesLC.forEach((word) => {
+		answerArray.push(candidates[indexOf(candidates, word)]);
+	});
+
+	console.log({ candidates }, { candidatesLC }, 'this is line 50', {
+		answerArray,
 	});
 
 	return answerArray;
