@@ -1,7 +1,7 @@
 export const toRna = (input) => {
-	let inputArray = [...input];
+	let inputArray1 = [...input];
 	let outputArray = [];
-	inputArray.forEach((letter) => {
+	inputArray1.forEach((letter) => {
 		switch (letter) {
 			case 'G':
 				return outputArray.push('C');
