@@ -44,4 +44,4 @@ each nucleotide with its complement:
 
 ### Based on
 
-Hyperphysics - http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html
+Hyperphysics - <http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html>
