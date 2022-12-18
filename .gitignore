@@ -132,3 +132,5 @@ javascript/anagram/.exercism/metadata.json
 .vscode/settings.json
 .vscode/launch.json
 javascript/rna-transcription/.exercism/metadata.json
+package-lock.json
+metadata.json
