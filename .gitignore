@@ -129,3 +129,5 @@ javascript/anagram/.exercism/metadata.json
 
 .exercism/metadata.json
 .package-lock.json
+.vscode/settings.json
+.vscode/launch.json
