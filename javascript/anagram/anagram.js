@@ -1,28 +1,29 @@
 export const findAnagrams = (target, candidates) => {
 	let targetLC = target.toLowerCase();
 	let candidatesLC = candidates.map((word) => word.toLowerCase());
+	let discardList = [];
 
-	candidatesLC.forEach((word) => {
+	candidatesLC.forEach((word, index) => {
 		if (word === targetLC) {
-			console.log(`${word} exact match`);
-			candidatesLC.splice(candidatesLC.indexOf(word), 1);
+			console.log({ word }, { index }, 'exact match');
+			discardList.push(candidatesLC[index]);
 		}
 	});
 
-	candidatesLC.forEach((word) => {
+	candidatesLC.forEach((word, index) => {
 		if (word.length !== targetLC.length) {
 			//console.log(`${word} not same length`);
-			candidatesLC.splice(candidatesLC.indexOf(word), 1);
+			discardList.push(candidatesLC[index]);
 		}
 	});
 
 	//checking for anagrams now
 
 	let targetLCArray = [...targetLC];
-	let discardList = [];
-
+	console.log({ targetLCArray }, 'before the first forEach');
 	candidatesLC.forEach((word, index) => {
 		let candidateLCListWordArray = [...word];
+		targetLCArray = [...targetLC];
 		console.log({ candidateLCListWordArray });
 		candidateLCListWordArray.forEach((letter) => {
 			if (!targetLCArray.includes(letter)) {
@@ -32,7 +33,10 @@ export const findAnagrams = (target, candidates) => {
 					console.log({ discardList });
 				}
 			} else {
+				console.log({ targetLCArray }, ' before splice');
+				targetLCArray.splice(targetLCArray.indexOf(letter), 1);
 				console.log({ letter }, 'found in target');
+				console.log({ targetLCArray }, ' after splice');
 			}
 		});
 	});
@@ -60,10 +64,6 @@ https://stackoverflow.com/questions/24718349/how-do-i-make-array-indexof-case-in
 
 	candidatesLC.forEach((word) => {
 		answerArray.push(candidates[indexOf(candidates, word)]);
-	});
-
-	console.log({ candidates }, { candidatesLC }, 'this is line 50', {
-		answerArray,
 	});
 
 	return answerArray;
