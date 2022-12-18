@@ -45,25 +45,15 @@ export const findAnagrams = (target, candidates) => {
 		candidatesLC.splice(candidatesLC.indexOf(value), 1);
 	});
 
-	// addressing double letters -- anagram letters can only be used once
-
-	/* 	var array = ['I', 'hAve', 'theSe', 'ITEMs'],
-			indexOf = (arr, q) =>
-				arr.findIndex((item) => q.toLowerCase() === item.toLowerCase());
-		^		
-https://stackoverflow.com/questions/24718349/how-do-i-make-array-indexof-case-insensitive
-
-				*/
-
 	let answerArray = [];
 
-	indexOf = (array, word) =>
-		array.findIndex(
-			(item) => word.toLowerCase() === item.toLowerCase()
-		);
+	// comparison of end product to original array.
 
-	candidatesLC.forEach((word) => {
-		answerArray.push(candidates[indexOf(candidates, word)]);
+	let compareCandidates = candidates.map((v) => v.toLowerCase());
+	console.log({ compareCandidates });
+
+	candidatesLC.forEach((anagram) => {
+		answerArray.push(candidates[compareCandidates.indexOf(anagram)]);
 	});
 
 	return answerArray;
