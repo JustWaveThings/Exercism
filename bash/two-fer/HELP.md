@@ -79,7 +79,7 @@ Check your code for syntax errors: paste your code into
 
 Stack Overflow will be your first stop for bash questions.
 
-* start with the [`bash` tag](https://stackoverflow.com/questions/tagged/bash) to search for your specific question: it's probably already been asked
+- start with the [`bash` tag](https://stackoverflow.com/questions/tagged/bash) to search for your specific question: it's probably already been asked
 * under the bash tag on Stackoverflow, the [Learn more...](https://stackoverflow.com/tags/bash/info) link has _tons_ of good information.
     * the "Books and Resources" section is particularly useful.
 * the [`bash` tag](https://unix.stackexchange.com/questions/tagged/bash) on Unix & Linux is also active

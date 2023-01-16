@@ -4,7 +4,7 @@ load bats-extra
 # local version: 1.2.0.1
 
 @test "no name given" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
   # The above line controls whether to skip the test.
   # Normally, we skip every test except for the first one
