@@ -1,2 +1,2 @@
-# Exercism_Javascript
- Repo for my completed Exercism JS exercises
+# Exercism_Javascript & More!
+ Repo for my completed Exercism JS exercises, and any other exercism exploration. Looking to dabbble in bash scripting.
