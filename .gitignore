@@ -134,3 +134,5 @@ javascript/anagram/.exercism/metadata.json
 javascript/rna-transcription/.exercism/metadata.json
 package-lock.json
 metadata.json
+bash/two-fer/.exercism/config.json
+bash/two-fer/bats-extra.bash
